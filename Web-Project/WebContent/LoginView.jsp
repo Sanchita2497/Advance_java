@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,13 +7,23 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-<%@ include file="Header.jsp"%>
+	<%@ include file="Header.jsp"%>
 	<%
+		String success = (String) request.getAttribute("success");
 		String error = (String) request.getAttribute("error");
 	%>
 	<div align="center">
 		<h1>Login</h1>
+		<%
+			if (success != null) {
+		%>
+		<h3>
+			<font color="green"><%=success%></font>
+		</h3>
+
+		<%
+			}
+		%>
 		<%
 			if (error != null) {
 		%>
@@ -42,7 +52,5 @@
 			</table>
 		</form>
 	</div>
-
-
 </body>
 </html>
